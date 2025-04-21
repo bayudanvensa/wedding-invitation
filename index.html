@@ -23,7 +23,10 @@
       font-family: 'ScheherazadeNew-SemiBold';
       src: url('fonts/ScheherazadeNew-SemiBold.ttf') format('truetype');
     }
-
+	    @font-face {
+      font-family: 'quicksand';
+      src: url('fonts/quicksand.ttf') format('truetype');
+}
     :root {
       --maroon: #640505;
       --soft-white: rgba(255, 255, 255, 0.85);
@@ -91,18 +94,17 @@
 
     .buka-btn {
       margin-top: 30px;
-      background-color: var(--maroon);
-      color: white;
-      padding: 12px 30px;
+      background-color: white;
+      padding: 12px 28px;
       border: none;
-      border-radius: 30px;
+      border-radius: 28px;
       font-size: 16px;
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
 
     .buka-btn:hover {
-      background-color: #8b0000;
+      background-color: #640505;
     }
 
 /* THE WEDDING */
@@ -221,15 +223,31 @@
   }
 }
 
+.today-message {
+  font-family: 'Playfair Display', serif; /* atau font lain sesuai tema kamu */
+  font-size: 20px;
+  font-weight: 500;
+  color: #640505; /* atau bisa ganti warna lain seperti #8B0000 atau #B22222 */
+  margin-top: 20px;
+  text-align: center;
+  animation: fadeIn 1.5s ease;
+}
+
+/* Animasi lembut muncul */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
  /* AYAT */
 #ayat {
-  background-color: var(--maroon);
+  background-color: #640505;
   padding: 100px 20px;
   text-align: center;
-  color: var(--soft-pink);
+  color: white;
   width: 100%;
   box-sizing: border-box;
-  margin: 0; /* Menghapus margin default */
+  margin: 0;
 }
 
 .ayat-arab {
@@ -390,7 +408,7 @@
 }
 
 .resepsi-info {
-  font-family: 'Playfair Display', serif;
+  font-family: 'quicksand';
   font-size: 18px;
   color: white;
   margin-bottom: 30px;
@@ -408,7 +426,7 @@
   margin-top: 10px;
   margin-bottom: 20px;
   text-align: center;
-  font-style: italic;
+  font-family: 'Playfair Display';
 }
 
 .resepsi-button {
@@ -809,11 +827,11 @@
   }
 
   .section-title {
-    font-size: 30px;
+    font-size: 38px;
   }
 
   .section-desc {
-    font-size: 14px;
+    font-size: 20px;
     max-width: 100%;
   }
 
@@ -829,11 +847,11 @@
 /* Responsif untuk layar sangat kecil (misalnya ponsel layar kecil) */
 @media (max-width: 480px) {
   .section-title {
-    font-size: 26px;
+    font-size: 36px;
   }
 
   .section-desc {
-    font-size: 12px;
+    font-size: 16px;
   }
 
   .form-box input,
@@ -914,8 +932,8 @@
   margin-top: 40px;
   margin-bottom: 40px;
   text-align: center;
-}
 
+}
 
   </style>
 </head>
@@ -979,20 +997,67 @@ document.querySelector(".buka-btn").addEventListener("click", scrollToWedding);
 </script>
 
 
-  <!-- THE WEDDING -->
-  <section id="wedding">
-    <div class="wedding-content">
-      <h2>The Wedding of</h2>
-      <img src="images/huruf-bv.png" alt="Logo BV" class="bv-logo">
-      <h3>Bayu & Vensa</h3>
-      <div class="countdown">
-        <div class="countdown-item"><div id="days">00</div><span>Hari</span></div>
-        <div class="countdown-item"><div id="hours">00</div><span>Jam</span></div>
-        <div class="countdown-item"><div id="minutes">00</div><span>Menit</span></div>
-        <div class="countdown-item"><div id="seconds">00</div><span>Detik</span></div>
+<!-- THE WEDDING -->
+<section id="wedding">
+  <div class="wedding-content">
+    <h2>The Wedding of</h2>
+    <img src="images/huruf-bv.png" alt="Logo BV" class="bv-logo">
+    <h3>Bayu & Vensa</h3>
+    
+    <!-- Countdown Wrapper -->
+    <div id="countdown" class="countdown">
+      <div class="countdown-item">
+        <div id="days">00</div><span>Hari</span>
+      </div>
+      <div class="countdown-item">
+        <div id="hours">00</div><span>Jam</span>
+      </div>
+      <div class="countdown-item">
+        <div id="minutes">00</div><span>Menit</span>
+      </div>
+      <div class="countdown-item">
+        <div id="seconds">00</div><span>Detik</span>
       </div>
     </div>
-  </section>
+    
+  </div>
+</section>
+
+<script>
+  function scrollToWedding() {
+    document.getElementById("wedding").scrollIntoView({ behavior: 'smooth' });
+  }
+
+  const targetDate = new Date("2025-04-21T11:00:00").getTime(); // ganti ke tanggal resepsimu
+
+const countdown = setInterval(() => {
+  const now = new Date().getTime();
+  const distance = targetDate - now;
+  const oneDay = 1000 * 60 * 60 * 24;
+
+  if (distance <= 0 && distance > -oneDay) {
+    clearInterval(countdown);
+    document.getElementById("countdown").innerHTML =
+      "<p class='today-message'>Hari ini adalah hari spesial kami!</p>";
+  } else if (distance <= -oneDay) {
+    clearInterval(countdown);
+    document.getElementById("countdown").innerHTML =
+      "<p class='today-message'>Terima kasih telah menjadi bagian dari hari spesial kami 💖</p>";
+  } else {
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
+  }
+}, 1000);
+
+</script>
+
 
   <!-- AYAT -->
   <section id="ayat">
@@ -1007,27 +1072,8 @@ document.querySelector(".buka-btn").addEventListener("click", scrollToWedding);
     </p>
   </section>
 
-  <script>
-    function scrollToWedding() {
-      document.getElementById("wedding").scrollIntoView({ behavior: 'smooth' });
-    }
+ 
 
-    const targetDate = new Date("2025-08-23T11:00:00").getTime();
-    setInterval(() => {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      document.getElementById("days").innerText = days;
-      document.getElementById("hours").innerText = hours;
-      document.getElementById("minutes").innerText = minutes;
-      document.getElementById("seconds").innerText = seconds;
-    }, 1000);
-  </script>
   
   <!--KEDUA MEMPELAI-->
  <section id="mempelai" style="background: url('cover.jpg') no-repeat center center/cover; background-attachment: fixed; padding: 60px 20px;">
@@ -1040,15 +1086,15 @@ document.querySelector(".buka-btn").addEventListener("click", scrollToWedding);
     <!-- Card Bayu -->
     <div style="display: flex; background: rgba(255, 255, 255, 0.5); border-radius: 30px; padding: 20px; width: 100%; box-shadow: 0 4px 20px rgba(0,0,0,0.1); align-items: center; justify-content: space-between;">
       <div style="position: relative;" class="fade-in">
-  <img src="images/bayu.png" alt="Bayu" style="width: 120px; height: 160px; object-fit: cover; border-radius: 20px; object-position: top;">
+  <img src="images/bayu.png" alt="Bayu" style="width: 120px; height: 160px; object-fit: cover; border-radius: 10px; object-position: top;">
   <img src="images/bunga2.png" alt="bunga" style="position: absolute; bottom: -50px; left: 50%; transform: translateX(-50%); width: 200px;">
 </div>
       <div style="text-align: center; flex: 1; margin-left: -10px;">
-      <h3 style="font-family: 'Playfair Display', serif; color: #640505; font-size: 1rem; text-align:center;">
+      <h3 style="font-family: 'Playfair Display', serif; color: #640505; font-size: 0.9rem; text-align:center;">
           Bayu Taufik Imanda, S.Si
       </h3>
-        <p style="font-family: 'Playfair Display', serif; font-size: 0.8rem; color: #640505;text-align:center;;">
-          Putra dari Bapak Radiman & Ibu Wirda
+        <p style="font-family: 'Playfair Display', serif; font-size: 0.7rem; color: #640505;text-align:center;;">
+          Putra pertama dari Bapak Radiman & Ibu Wirda
         </p>
       </div>
     </div>
@@ -1061,16 +1107,16 @@ document.querySelector(".buka-btn").addEventListener("click", scrollToWedding);
     <!-- Card Vensa -->
     <div style="display: flex; flex-direction: row-reverse; background: rgba(255, 255, 255, 0.5); border-radius: 30px; padding: 20px; width: 100%; box-shadow: 0 4px 20px rgba(0,0,0,0.1); align-items: center; justify-content: space-between;">
            <div style="position: relative;" class="fade-in">
-        <img src="images/vensa.png" alt="Vensa" style="width: 120px; height: 160px; object-fit: cover; border-radius: 20px; object-position: top;">
+        <img src="images/vensa.png" alt="Vensa" style="width: 120px; height: 160px; object-fit: cover; border-radius: 10px; object-position: top;">
         <img src="images/bunga2.png" alt="bunga" style="position: absolute; bottom: -50px; left: 50%; transform: translateX(-50%) scaleX(-1); width: 200px;">
       </div>
       <div style="text-align: center; flex: 1; margin-right: 1px;">
-       <h3 style="font-family: 'Playfair Display', serif; color: #640505; font-size: 1rem; text-align:center; ">
+       <h3 style="font-family: 'Playfair Display', serif; color: #640505; font-size: 0.9rem; text-align:center; ">
          Vensania Putri Sabrina, S.T
        </h3>
 
-        <p style="font-family: 'Playfair Display', serif; font-size: 0.8rem; color: #640505; text-align:center;  ">
-          Putri dari Bapak Supandi & Ibu Irawati
+        <p style="font-family: 'Playfair Display', serif; font-size: 0.7rem; color: #640505; text-align:center;  ">
+          Putri pertama dari Bapak Supandi & Ibu Irawati
         </p>
       </div>
     </div>
