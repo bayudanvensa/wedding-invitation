@@ -30,28 +30,28 @@
       --soft-pink: #FFDDE4;
     }
 
-    * {
+     *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    body {
-      font-family: 'Playfair Display', serif;
+     html, body {
       overflow-x: hidden;
+      font-family: 'Playfair Display', serif;
       scroll-behavior: smooth;
+      background: url('cover.jpg') no-repeat center center fixed;
+      background-size: cover;
     }
 
     /* COVER */
-    .hero {
-      background: url('cover.jpg') no-repeat center center fixed;
-      background-size: cover;
+     .hero {
       height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
       text-align: center;
+      position: relative;
     }
 
     .hero::before {
@@ -71,11 +71,18 @@
       max-width: 700px;
     }
 
-    .hero-content h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 40px;
-      margin-bottom: 20px;
-    }
+.hero-content h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 5rem;
+  margin-bottom: 20px;
+}
+
+/* RESPONSIF untuk HP */
+@media screen and (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+}
 
     .hero-content p {
       font-size: 16px;
@@ -91,256 +98,389 @@
       border-radius: 30px;
       font-size: 16px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
 
     .buka-btn:hover {
       background-color: #8b0000;
     }
 
-    /* THE WEDDING */
-    #wedding {
-      padding: 80px 20px;
-      background: url('cover.jpg') no-repeat center center fixed;
-      background-size: cover;
-    }
-
-    .wedding-content {
-      max-width: 400px;
-      margin: 0 auto;
-      text-align: center;
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    }
-
-    .wedding-content h2,
-    .wedding-content h3 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 30px;
-      color: var(--maroon);
-      margin-bottom: 20px;
-	  letter-spacing: 5px;
-    }
-
-    .bv-logo {
-      width: 100px;
-      margin: 0 auto 20px;
-    }
-
-    .countdown {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .countdown-item {
-      background: #fff;
-      border: 2px solid var(--maroon);
-      border-radius: 12px;
-      padding: 12px 12px;
-      min-width: 5px;
-      color: var(--maroon);
-      font-weight: bold;
-      font-size: 18px;
-      text-align: center;
-    }
-
-    .countdown-item span {
-      display: block;
-      font-size: 13px;
-      font-weight: normal;
-      margin-top: 5px;
-    }
-
-    /* AYAT */
-    #ayat {
-      background-color: var(--maroon);
-      padding: 100px 20px;
-      text-align: center;
-      color: var(--soft-pink);
-    }
-
-    .ayat-arab {
-      font-family: 'ScheherazadeNew-SemiBold';
-      font-size: 20px;
-      line-height: 2;
-      margin-bottom: 30px;
-    }
-
-    .ayat-arti {
-      font-size: 12px;
-      font-family: 'Playfair Display';
-      max-width: 700px;
-      margin: 0 auto;
-      line-height: 1.8;
-    }
-
-    @media (max-width: 768px) {
-      .hero-content h1 {
-        font-size: 30px;
-      }
-      .wedding-content {
-        max-width: 90%;
-        padding: 20px;
-      }
-      .wedding-content h2,
-      .wedding-content h3 {
-        font-size: 26px;
-      }
-      .countdown-item {
-        font-size: 18px;
-        padding: 12px 16px;
-      }
-    }
-	
-	.mempelai-section {
- background-color: rgba(255, 255, 255, 0.3)
-}
-
-.judul-mempelai {
-  text-align: center;
-  font-size: 30px;
-  font-family: 'Great Vibes', cursive;
-  color: #640505;
-  margin-bottom: 90px;
-}
-
-.mempelai-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 800px;
-  margin: 0 auto 50px;
-  background-color: rgba(255,255,255,0.6);
-  border-radius: 50px;
-  padding: 30px;
-  position: relative;
-  gap: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.mempelai-box.vensa {
-  flex-direction: row-reverse;
-}
-
-.foto-mempelai {
-  width: 160px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-.info-mempelai {
-  max-width: 400px;
-  color: #640505;
-  text-align: center;
-}
-
-.info-mempelai h3 {
-  font-size: 22px;
-  margin-bottom: 10px;
-  font-family: 'Playfair Display', serif;
-}
-
-.info-mempelai p {
-  font-size: 15px;
-  color: #333;
-}
-
-.bunga-foto {
-  position: absolute;
-  bottom: -25px;
-  width: 100px;
-}
-
-.bawah-vensa {
-  transform: scaleX(-1);
-}
-
-.cincin-wrapper {
-  text-align: center;
-  margin: 40px 0;
-}
-
-.cincin-img {
-  width: 60px;
-}
-
-@media screen and (max-width: 768px) {
-  .mempelai-box {
-    flex-direction: column;
-    padding: 20px;
-    text-align: center;
-  }
-
-  .foto-mempelai {
-    width: 140px;
-    height: 180px;
-  }
-
-  .bunga-foto {
-    bottom: -15px;
-    width: 80px;
-  }
-}
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 1s ease-out forwards;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.kisah-section {
+/* THE WEDDING */
+#wedding {
   padding: 80px 20px;
   background: url('cover.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 
+.wedding-content {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.wedding-content h2,
+.wedding-content h3 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 30px;
+  color: var(--maroon);
+  margin-bottom: 20px;
+  letter-spacing: 5px;
+}
+
+.bv-logo {
+  width: 100px;
+  margin: 0 auto 20px;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.countdown-item {
+  background: #fff;
+  border: 2px solid var(--maroon);
+  border-radius: 12px;
+  padding: 12px 12px;
+  min-width: 5px;
+  color: var(--maroon);
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+}
+
+.countdown-item span {
+  display: block;
+  font-size: 13px;
+  font-weight: normal;
+  margin-top: 5px;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  #wedding {
+    padding: 50px 10px;
+  }
+
+  .wedding-content {
+    max-width: 90%;
+    padding: 20px;
+  }
+
+  .wedding-content h2,
+  .wedding-content h3 {
+    font-size: 26px;
+    letter-spacing: 3px;
+  }
+
+  .bv-logo {
+    width: 80px;
+  }
+
+  .countdown-item {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .countdown-item span {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wedding-content {
+    max-width: 95%;
+    padding: 15px;
+  }
+
+  .wedding-content h2,
+  .wedding-content h3 {
+    font-size: 24px;
+    letter-spacing: 2px;
+  }
+
+  .bv-logo {
+    width: 70px;
+  }
+
+  .countdown-item {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .countdown-item span {
+    font-size: 10px;
+  }
+}
+
+ /* AYAT */
+#ayat {
+  background-color: var(--maroon);
+  padding: 100px 20px;
+  text-align: center;
+  color: var(--soft-pink);
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0; /* Menghapus margin default */
+}
+
+.ayat-arab {
+  font-family: 'ScheherazadeNew-SemiBold';
+  font-size: 20px;
+  line-height: 2;
+  margin-bottom: 30px;
+}
+
+.ayat-arti {
+  font-size: 12px;
+  font-family: 'Playfair Display';
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  #ayat {
+    padding: 80px 15px; /* Menyesuaikan padding untuk layar lebih kecil */
+  }
+
+  .ayat-arab {
+    font-size: 18px; /* Ukuran font lebih kecil di layar kecil */
+  }
+
+  .ayat-arti {
+    font-size: 14px; /* Ukuran font lebih besar untuk kenyamanan membaca di layar kecil */
+    max-width: 90%; /* Lebih fleksibel di layar kecil */
+  }
+}
+
+@media (max-width: 480px) {
+  #ayat {
+    padding: 60px 10px; /* Lebih kecil lagi untuk layar ponsel */
+  }
+
+  .ayat-arab {
+    font-size: 16px; /* Menyesuaikan font pada layar ponsel */
+  }
+
+  .ayat-arti {
+    font-size: 13px; /* Menyesuaikan ukuran font */
+    max-width: 95%; /* Menyesuaikan lebar di layar kecil */
+  }
+}
+
+
+
+#/* THE WEDDING */
+#the-wedding-header {
+  text-align: center; /* Memastikan teks berada di tengah */
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 30px;
+    text-align: center; /* Menambahkan text-align center untuk pastikan judul tetap di tengah */
+  }
+  
+  .wedding-content {
+    max-width: 90%;
+    padding: 20px;
+    margin: 0 auto; /* Menghindari elemen bergeser */
+  }
+  
+  .wedding-content h2,
+  .wedding-content h3 {
+    font-size: 26px;
+    text-align: center; /* Menambahkan text-align center untuk pastikan subtitle tetap di tengah */
+  }
+
+  .countdown {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap; /* Menambahkan ini untuk mencegah elemen turun ke baris berikutnya */
+    gap: 6px;
+  }
+
+  .countdown-item {
+    background: #fff;
+    border: 2px solid var(--maroon);
+    border-radius: 12px;
+    padding: 12px 12px;
+    min-width: 50px; /* Menjamin lebar elemen tetap konsisten */
+    color: var(--maroon);
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    margin: 0 auto; /* Memastikan countdown item tetap berada di tengah */
+  }
+
+  .countdown-item span {
+    display: block;
+    font-size: 13px;
+    font-weight: normal;
+    margin-top: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  #ayat {
+    padding: 60px 10px; /* Lebih kecil lagi untuk layar ponsel */
+  }
+
+  .hero-content h1 {
+    font-size: 24px; /* Ukuran font lebih kecil pada layar ponsel */
+  }
+
+  .wedding-content {
+    max-width: 95%;
+    padding: 15px;
+  }
+
+  .wedding-content h2,
+  .wedding-content h3 {
+    font-size: 24px;
+  }
+
+  .countdown-item {
+    font-size: 16px;
+    padding: 10px 12px;
+  }
+
+  .countdown-item span {
+    font-size: 12px;
+  }
+}
+
+.resepsi-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  width: 100%;
+}
+
+.resepsi-box {
+  background-color: #640505;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+}
+
+.resepsi-box .section-title {
+  font-family: 'Berkshire Swash', cursive;
+  font-size: 36px;
+  color: white !important; /* ini penting biar ga ketimpa */
+  margin-bottom: 30px;
+}
+
+.resepsi-info {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: white;
+  margin-bottom: 30px;
+  line-height: 1.8;
+}
+
+.resepsi-info i {
+  margin-right: 8px;
+  color: #640505;
+}
+
+.resepsi-button {
+  background-color: white;
+  color: #640505;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.resepsi-button:hover {
+  background-color: #f5f5f5;
+  color: #850707;
+}
+
+@media (max-width: 768px) {
+  .resepsi-box {
+    padding: 25px;
+  }
+
+  .resepsi-box .section-title {
+    font-size: 28px;
+  }
+
+  .resepsi-info {
+    font-size: 14px;
+  }
+
+  .resepsi-button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
+
+
+/* KISAH CINTA */
+.kisah-section {
+  padding: 80px 20px;
+  background: url('cover.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 400px; /* Menambahkan minimum height untuk area yang konsisten */
+}
 
 .kisah-wrapper {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap; /* Agar elemen bisa beradaptasi pada layar kecil */
 }
 
 .kertas-kisah {
   background-color: rgba(255, 255, 255, 0.3); /* transparan */
   backdrop-filter: blur(8px); /* blur halus */
-  -webkit-backdrop-filter: blur(8px); /* buat Safari */
+  -webkit-backdrop-filter: blur(8px); /* untuk Safari */
   border-radius: 20px;
   padding: 2rem;
   color: #333;
   max-width: 800px;
+  width: 100%; /* Menjamin lebar 100% agar elemen tidak keluar dari layar */
   margin: auto;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+.judul-kisah {
+  text-align: center;
+  font-family: 'Berkshire Swash', cursive;
+  font-size: 39px;
+  color: var(--maroon);
+  margin-bottom: 25px;
+}
 
- .judul-kisah {
-      text-align: center;
-      font-family: 'Berkshire Swash', cursive;
-      font-size: 49px;
-      color: var(--maroon);
-      margin-bottom: 25px;
-    }
-
-    .kertas-kisah p {
-      text-align: center;
-      color: var(--maroon);
-      font-size: 16px;
-      line-height: 1.8;
-      margin-bottom: 18px;
-      padding: 0 10px;
-    }
+.kertas-kisah p {
+  text-align: center;
+  color: var(--maroon);
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 18px;
+  padding: 0 10px;
+}
 
 /* Fade In Animasi */
 .fade-in.kisah {
@@ -360,19 +500,26 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .kisah-section {
+    padding: 60px 10px; /* Menyesuaikan padding pada layar kecil */
+  }
+
   .kertas-kisah {
     padding: 30px 20px;
     background-size: contain;
+    margin: 20px 10px; /* Menambahkan margin agar elemen tidak terlalu menempel ke tepi */
   }
 
-  .kertas-kisah h2.judul-kisah {
+  .judul-kisah {
     font-size: 26px;
+    margin-bottom: 20px; /* Mengurangi margin untuk lebih efisien di layar kecil */
   }
 
   .kertas-kisah p {
     font-size: 15px;
   }
 }
+
 /* === Galeri Foto === */
 .galeri-section {
   padding: 80px 20px;
@@ -381,168 +528,322 @@
   background-size: cover;
 }
 
-    .galeri-title {
-      font-family: 'Berkshire Swash', cursive;
-      font-size: 42px;
-      color: var(--maroon);
-      margin-bottom: 40px;
-    }
-    .slider-container {
-      position: relative;
-      max-width: 90%;
-      margin: 0 auto;
-      overflow: hidden;
-    }
-    .slider {
-      display: flex;
-      transition: transform 0.5s ease;
-    }
-    .slide {
-      min-width: 33.33%;
-      padding: 10px;
-    }
-    .slide img {
-      width: 100%;
-      border-radius: 15px;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-    .nav-button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: var(--maroon);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      cursor: pointer;
-      z-index: 1;
-    }
-    #prevBtn {
-      left: 10px;
-    }
-    #nextBtn {
-      right: 10px;
-    }
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.8);
-      align-items: center;
-      justify-content: center;
-      z-index: 999;
-      flex-direction: column;
-    }
-    .modal img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 10px;
-    }
-    .close-btn {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 30px;
-      color: white;
-      cursor: pointer;
-   }
-
-    }
-    :root {
-      --maroon: #640505;
-      --soft-white: rgba(255, 255, 255, 0.85);
-      --soft-pink: #FFDDE4;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Playfair Display', serif;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-      background: url('cover.jpg') no-repeat center center fixed;
-      background-size: cover;
-    }
-    .section-title {
-      text-align: center;
-      font-family: 'Berkshire Swash', cursive;
-      font-size: 36px;
-      color: var(--maroon);
-      margin-bottom: 20px;
-    }
-    .section-desc {
-      text-align: center;
-      font-style: italic;
-      max-width: 600px;
-      margin: 0 auto 30px;
-      font-size: 16px;
-      color: #333;
-    }
-    .section-box {
-      background-color: rgba(255, 255, 255, 0.8);
-      padding: 40px 25px;
-      border-radius: 20px;
-      max-width: 600px;
-      margin: 60px auto;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    }
-    .form-box {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .form-box input,
-    .form-box select,
-    .form-box textarea {
-      padding: 10px;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      font-family: inherit;
-      font-size: 16px;
-    }
-    .form-box textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-    .form-box button {
-      background-color: var(--maroon);
-      color: white;
-      padding: 10px;
-      font-size: 16px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      z-index: 1;
+.galeri-title {
+  font-family: 'Berkshire Swash', cursive;
+  font-size: 42px;
+  color: var(--maroon);
+  margin-bottom: 40px;
 }
 
-    }
-    .form-box button:hover {
-      background-color: #850707;
-    }
-    .ucapan-display {
-      margin-top: 30px;
-      padding: 10px;
-      border-top: 1px solid #ccc;
-    }
-    .ucapan-nav {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 10px;
-    }
-    .ucapan-nav button {
-      background-color: transparent;
-      border: none;
-      font-size: 20px;
-      cursor: pointer;
-      color: var(--maroon);
-    }
+.slider-container {
+  position: relative;
+  max-width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  min-width: 50%; /* Menampilkan 2 foto */
+  padding: 10px;
+}
+
+.slide img {
+  width: 100%;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.slide img:hover {
+  transform: scale(1.03);
+}
+
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--maroon);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 1;
+  font-size: 20px;
+  transition: background 0.3s ease;
+}
+
+.nav-button:hover {
+  background: #400303;
+}
+
+#prevBtn {
+  left: 10px;
+}
+
+#nextBtn {
+  right: 10px;
+}
+
+/* === Modal Zoom === */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  flex-direction: column;
+}
+
+.modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #640505;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.close-button:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+
+/* Tombol panah dalam modal */
+.modal .nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--maroon);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 1;
+  font-size: 22px;
+}
+
+#prevModalBtn {
+  left: 20px;
+}
+
+#nextModalBtn {
+  right: 20px;
+}
+
+/* === Responsif Mobile === */
+@media screen and (max-width: 768px) {
+  .slide {
+    min-width: 100%; /* Satu foto per slide di HP */
+  }
+
+  .nav-button,
+  .modal .nav-button {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+
+  .close-btn {
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+  }
+
+  .modal .nav-button {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  #prevModalBtn {
+    left: 15px;
+  }
+
+  #nextModalBtn {
+    right: 15px;
+  }
+}
+
+/* === RSVP dan Doa Undangan === */
+.section-title {
+  text-align: center;
+  font-family: 'Berkshire Swash', cursive;
+  font-size: 36px;
+  color: var(--maroon);
+  margin-bottom: 20px;
+}
+
+.section-desc {
+  text-align: center;
+  font-style: italic;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  font-size: 16px;
+  color: #333;
+}
+
+.section-box {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 40px 25px;
+  border-radius: 20px;
+  max-width: 600px;
+  margin: 60px auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-box input,
+.form-box select,
+.form-box textarea {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.form-box textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-box button {
+  background-color: var(--maroon);
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.form-box button:hover {
+  background-color: #850707;
+}
+
+.ucapan-display {
+  margin-top: 30px;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.ucapan-nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.ucapan-nav button {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--maroon);
+}
+
+/* Responsive untuk layar kecil */
+@media (max-width: 768px) {
+  .section-box {
+    padding: 20px;
+    margin: 20px;
+    box-shadow: none;
+  }
+
+  .form-box input,
+  .form-box select,
+  .form-box textarea {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .form-box button {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .section-title {
+    font-size: 30px;
+  }
+
+  .section-desc {
+    font-size: 14px;
+    max-width: 100%;
+  }
+
+  .ucapan-nav {
+    gap: 10px;
+  }
+
+  .ucapan-nav button {
+    font-size: 18px;
+  }
+}
+
+/* Responsif untuk layar sangat kecil (misalnya ponsel layar kecil) */
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 26px;
+  }
+
+  .section-desc {
+    font-size: 12px;
+  }
+
+  .form-box input,
+  .form-box select,
+  .form-box textarea {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .form-box button {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .ucapan-nav button {
+    font-size: 16px;
+  }
+}
+
+
+	
 /* Tampilkan ikon musik hanya di halaman yang relevan */
 .audio-btn {
   position: fixed;
@@ -574,6 +875,35 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+.penutupan-section {
+  background: rgba(0, 0, 0, 0.5); /* hitam transparan */
+  padding: 60px 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.penutupan-content p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: white;
+  max-width: 700px;
+  margin: 0 auto;
+  font-family: 'Open Sans', sans-serif; /* ganti font kalau perlu */
+}
+
+.penutupan-nama {
+  font-family: 'Great Vibes', cursive;
+  color: white;
+  font-size: 35px;
+  letter-spacing: 5px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  text-align: center;
 }
 
 
@@ -688,7 +1018,7 @@ document.querySelector(".buka-btn").addEventListener("click", scrollToWedding);
     }, 1000);
   </script>
   
-  <!--Kedua Mempelai-->
+  <!--KEDUA MEMPELAI-->
  <section id="mempelai" style="background: url('cover.jpg') no-repeat center center/cover; background-attachment: fixed; padding: 60px 20px;">
  <h2 style="font-family: 'Berkshire Swash', cursive; color: #640505; text-align: center; font-size: 32px; margin-bottom: 30px;">
     Kedua Mempelai
@@ -703,10 +1033,10 @@ document.querySelector(".buka-btn").addEventListener("click", scrollToWedding);
   <img src="images/bunga2.png" alt="bunga" style="position: absolute; bottom: -50px; left: 50%; transform: translateX(-50%); width: 200px;">
 </div>
       <div style="text-align: center; flex: 1; margin-left: -10px;">
-      <h3 style="font-family: 'Playfair Display', serif; color: #640505; font-size: 1.3rem; margin: 0; white-space: nowrap;">
+      <h3 style="font-family: 'Playfair Display', serif; color: #640505; font-size: 1rem; text-align:center;">
           Bayu Taufik Imanda, S.Si
       </h3>
-        <p style="font-family: 'Playfair Display', serif; font-size: 0.9rem; color: #640505; white-space: nowrap;">
+        <p style="font-family: 'Playfair Display', serif; font-size: 0.8rem; color: #640505;text-align:center;;">
           Putra dari Bapak Radiman & Ibu Wirda
         </p>
       </div>
@@ -724,17 +1054,56 @@ document.querySelector(".buka-btn").addEventListener("click", scrollToWedding);
         <img src="images/bunga2.png" alt="bunga" style="position: absolute; bottom: -50px; left: 50%; transform: translateX(-50%) scaleX(-1); width: 200px;">
       </div>
       <div style="text-align: center; flex: 1; margin-right: 1px;">
-       <h3 style="font-family: 'Playfair Display', serif; color: #640505; font-size: 1.3rem; margin: 0; white-space: nowrap;">
+       <h3 style="font-family: 'Playfair Display', serif; color: #640505; font-size: 1rem; text-align:center; ">
          Vensania Putri Sabrina, S.T
        </h3>
 
-        <p style="font-family: 'Playfair Display', serif; font-size: 0.9rem; color: #640505; white-space: nowrap;">
+        <p style="font-family: 'Playfair Display', serif; font-size: 0.8rem; color: #640505; text-align:center;  ">
           Putri dari Bapak Supandi & Ibu Irawati
         </p>
       </div>
     </div>
   </div>
 </section>
+
+
+<!--RESEPSI PERNIKAHAN-->
+<section class="resepsi-section">
+  <div class="resepsi-box">
+    <h2 class="section-title">Resepsi Pernikahan</h2>
+
+    <div class="resepsi-info">
+      <p>Sabtu, 23 Agustus 2025</p>
+      <p>Pukul 11.00 - selesai</p>
+      <button id="btn-kalender" class="resepsi-button">
+        <i class="fa fa-calendar"></i> Tambahkan ke Kalender
+      </button>
+    </div>
+
+    <div class="resepsi-info">
+      <p>Gedung Mutiara</p>
+      <p>Jl. Budi Utomo Lk IV, Kel. Mutiara, Kec. Kota Kisaran Timur</p>
+      <button id="btn-lokasi" class="resepsi-button">
+        <i class="fa fa-map-marker"></i> Lihat Lokasi
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById("btn-kalender").addEventListener("click", () => {
+    const calendarUrl = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Resepsi+Pernikahan+Bayu+%26+Vensa&dates=20250823T040000Z/20250823T080000Z&details=Resepsi+di+Gedung+Mutiara,+Kisaran&location=Jl.+Budi+Utomo+Lk+IV,+Kel.+Mutiara,+Kisaran&sf=true&output=xml";
+    window.open(calendarUrl, "_blank");
+  });
+
+  document.getElementById("btn-lokasi").addEventListener("click", () => {
+    const mapsUrl = "https://g.co/kgs/KiwZpEY";
+    window.open(mapsUrl, "_blank");
+  });
+</script>
+
+
+
 
 <!--Kisah Cinta-->
 <section id="kisah-cinta" class="kisah-section">
@@ -756,73 +1125,103 @@ document.querySelector(".buka-btn").addEventListener("click", scrollToWedding);
     </div>
   </div>
 </section>
+
 <!-- GALERI FOTO -->
-   <section class="galeri-section" id="galeri">
-    <h2 class="galeri-title">Galeri Foto</h2>
-    <div class="slider-container">
-      <button class="nav-button" id="prevBtn">❮</button>
-      <div class="slider" id="slider">
-        <div class="slide"><img src="images/galeri/foto1.jpg" alt="Foto 1"></div>
-        <div class="slide"><img src="images/galeri/foto2.jpg" alt="Foto 2"></div>
-        <div class="slide"><img src="images/galeri/foto3.jpg" alt="Foto 3"></div>
-        <div class="slide"><img src="images/galeri/foto4.jpg" alt="Foto 4"></div>
-        <div class="slide"><img src="images/galeri/foto5.jpg" alt="Foto 5"></div>
-        <div class="slide"><img src="images/galeri/foto6.jpg" alt="Foto 6"></div>
-        <div class="slide"><img src="images/galeri/foto7.jpg" alt="Foto 7"></div>
-        <div class="slide"><img src="images/galeri/foto8.jpg" alt="Foto 8"></div>
-        <div class="slide"><img src="images/galeri/foto9.jpg" alt="Foto 9"></div>
-        <div class="slide"><img src="images/galeri/foto10.jpg" alt="Foto 10"></div>
-        <div class="slide"><img src="images/galeri/foto11.jpg" alt="Foto 11"></div>
-      </div>
-      <button class="nav-button" id="nextBtn">❯</button>
+<section class="galeri-section" id="galeri">
+  <h2 class="galeri-title">Galeri Foto</h2>
+  <div class="slider-container">
+    <button class="nav-button" id="prevBtn">❮</button>
+    <div class="slider" id="slider">
+      <!-- Gambar -->
+      <div class="slide"><img src="images/galeri/foto1.jpg" alt="Foto 1"></div>
+      <div class="slide"><img src="images/galeri/foto2.jpg" alt="Foto 2"></div>
+	  <div class="slide"><img src="images/galeri/foto3.jpg" alt="Foto 3"></div>
+      <div class="slide"><img src="images/galeri/foto4.jpg" alt="Foto 4"></div>
+	  <div class="slide"><img src="images/galeri/foto5.jpg" alt="Foto 5"></div>
+	  <div class="slide"><img src="images/galeri/foto6.jpg" alt="Foto 6"></div>
+	  <div class="slide"><img src="images/galeri/foto7.jpg" alt="Foto 7"></div>
+	  <div class="slide"><img src="images/galeri/foto8.jpg" alt="Foto 8"></div>
+	  <div class="slide"><img src="images/galeri/foto9.jpg" alt="Foto 9"></div>
+      <div class="slide"><img src="images/galeri/foto10.jpg" alt="Foto 10"></div>
+      <div class="slide"><img src="images/galeri/foto11.jpg" alt="Foto 11"></div>
     </div>
- </section>
-
-  <div class="modal" id="modal">
-    <span class="close-btn" id="closeModal">&times;</span>
-    <img id="modalImg" src="" alt="Zoomed Image">
+    <button class="nav-button" id="nextBtn">❯</button>
   </div>
+</section>
 
-  <script>
-    const slider = document.getElementById("slider");
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
-    const slides = document.querySelectorAll(".slide");
-    const modal = document.getElementById("modal");
-    const modalImg = document.getElementById("modalImg");
-    const closeModal = document.getElementById("closeModal");
+<!-- Modal Zoom -->
+<div class="modal" id="modal">
+  <img id="modalImg" src="" alt="Zoomed Image">
+  <button class="nav-button modal-nav" id="prevModalBtn">❮</button>
+  <button class="nav-button modal-nav" id="nextModalBtn">❯</button>
+  <button class="close-button" id="closeModal">&times;</button>
+</div>
 
-    let index = 0;
-    const showSlides = () => {
-      const offset = index * -33.33;
-      slider.style.transform = `translateX(${offset}%)`;
-    };
+<script>
+  const slider = document.getElementById("slider");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const slides = document.querySelectorAll(".slide");
+  const modal = document.getElementById("modal");
+  const modalImg = document.getElementById("modalImg");
+  const closeModal = document.getElementById("closeModal");
+  const prevModalBtn = document.getElementById("prevModalBtn");
+  const nextModalBtn = document.getElementById("nextModalBtn");
 
-    prevBtn.onclick = () => {
-      if (index > 0) {
-        index--;
-        showSlides();
-      }
-    };
+  let index = 0;
 
-    nextBtn.onclick = () => {
-      if (index < slides.length - 3) {
-        index++;
-        showSlides();
-      }
-    };
+  const showSlides = () => {
+    const offset = index * -50;
+    slider.style.transform = `translateX(${offset}%)`;
+  };
 
-    slides.forEach(slide => {
-      slide.addEventListener("click", () => {
-        modal.style.display = "flex";
-        modalImg.src = slide.querySelector("img").src;
-      });
+  prevBtn.onclick = () => {
+    if (index > 0) {
+      index--;
+      showSlides();
+    }
+  };
+
+  nextBtn.onclick = () => {
+    if (index < slides.length - 2) {
+      index++;
+      showSlides();
+    }
+  };
+
+  slides.forEach(slide => {
+    slide.addEventListener("click", () => {
+      modal.style.display = "flex";
+      modalImg.src = slide.querySelector("img").src;
     });
+  });
 
-    closeModal.onclick = () => {
+  closeModal.onclick = () => {
+    modal.style.display = "none";
+  };
+
+  prevModalBtn.onclick = () => {
+    let modalIndex = Array.from(slides).findIndex(slide => slide.querySelector("img").src === modalImg.src);
+    if (modalIndex > 0) {
+      modalImg.src = slides[modalIndex - 1].querySelector("img").src;
+    }
+  };
+
+  nextModalBtn.onclick = () => {
+    let modalIndex = Array.from(slides).findIndex(slide => slide.querySelector("img").src === modalImg.src);
+    if (modalIndex < slides.length - 1) {
+      modalImg.src = slides[modalIndex + 1].querySelector("img").src;
+    }
+  };
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
       modal.style.display = "none";
-    };
+    }
+  });
 </script>
+
+
 	
   <section class="section-box">
     <h2 class="section-title">RSVP Kehadiran</h2>
@@ -831,8 +1230,8 @@ document.querySelector(".buka-btn").addEventListener("click", scrollToWedding);
       <input type="text" id="rsvpName" placeholder="Nama Anda" required />
       <select id="rsvpStatus" required>
         <option value="">-- Kehadiran --</option>
-        <option value="Hadir">Hadir</option>
-        <option value="Tidak Hadir">Tidak Hadir</option>
+        <option value="Hadir">hadir</option>
+        <option value="Tidak Hadir">tidak hadir</option>
       </select>
       <button type="submit">Kirim ke WhatsApp</button>
     </form>
@@ -931,15 +1330,16 @@ document.querySelector(".buka-btn").addEventListener("click", scrollToWedding);
     document.addEventListener("DOMContentLoaded", loadUcapan);
   </script>
   
-  <!-- Penutupan -->
-<section class="hero-content p" style="text-align: center;">
-  <p style="font-size: 18px; line-height: 1.8; color: white;">
-    Adalah suatu kehormatan bagi kami, apabila Bapak/Ibu/Saudara/i berkenan hadir, memberikan doa dan restu yang akan menjadi berkah bagi perjalanan kami.<br><br>
-    Kehadiran Anda akan menambah keindahan hari yang kami nanti-nantikan, dan menjadi bagian tak terpisahkan dari kisah cinta yang kami bangun bersama.
-  </p>
-  
-  
-  <h3 style="font-family: 'Great Vibes', cursive; color: #640505; letter-spacing:4px; font-size: 35px; margin-top: 50px; margin-bottom: 60px;">Bayu & Vensa</h3>
+<!-- Penutupan -->
+<section class="penutupan-section">
+  <div class="hero-content p">
+    <p>
+      Adalah suatu kehormatan bagi kami, apabila Bapak/Ibu/Saudara/i berkenan hadir, memberikan doa dan restu yang akan menjadi berkah bagi perjalanan kami.<br><br>
+      Kehadiran Anda akan menambah keindahan hari yang kami nanti-nantikan, dan menjadi bagian tak terpisahkan dari kisah cinta yang kami bangun bersama.
+    </p>
+
+    <h3 class="penutupan-nama">Bayu & Vensa</h3>
+  </div>
 </section>
 
 <!-- Hashtag Sticky -->
