@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Undangan Pernikahan Bayu & Vensa</title>
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
- <style>
+  <style>
     @font-face {
       font-family: 'Berkshire Swash';
       src: url('fonts/berkshirewash.ttf') format('truetype');
@@ -23,32 +23,79 @@
       font-family: 'ScheherazadeNew-SemiBold';
       src: url('fonts/ScheherazadeNew-SemiBold.ttf') format('truetype');
     }
-	    @font-face {
+    @font-face {
       font-family: 'quicksand';
       src: url('fonts/quicksand.ttf') format('truetype');
-}
+    }
+
     :root {
       --maroon: #640505;
       --soft-white: rgba(255, 255, 255, 0.85);
       --soft-pink: #FFDDE4;
     }
 
-     *, *::before, *::after {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-     html, body {
+     html {
+     scroll-behavior: smooth;
+     }
+
+     * {
+     box-sizing: border-box;
+     }
+    html, body {
       overflow-x: hidden;
       font-family: 'Playfair Display', serif;
       scroll-behavior: smooth;
-      background: url('cover3.png') no-repeat center center fixed;
-      background-size: cover;
+      min-height: 100vh;
+      position: relative;
+       -webkit-overflow-scrolling: touch; /* Smooth scrolling Safari */
+    }
+    
+	input, select, textarea {
+     -webkit-appearance: none; /* Biar form elemen lebih konsisten di iOS Safari */
     }
 
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url('cover3.png') no-repeat center center;
+      background-size: cover;
+      z-index: -1;
+      will-change: transform;
+    }
+
+    @supports (-webkit-touch-callout: none) {
+      body::before {
+        position: absolute; /* Fallback Safari iOS */
+      }
+    }
+
+
+/* FIXED BACKGROUND RESPONSIVE UNTUK SEMUA BROWSER */
+.bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('cover3.png') no-repeat center center;
+  background-size: cover;
+  z-index: -1;
+  pointer-events: none;
+}
+
     /* COVER */
-     .hero {
+    .hero {
       height: 100vh;
       display: flex;
       align-items: center;
@@ -74,18 +121,11 @@
       max-width: 700px;
     }
 
-.hero-content h1 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 4rem;
-  margin-bottom: 20px;
-}
-
-/* RESPONSIF untuk HP */
-@media screen and (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 4rem;
-  }
-}
+    .hero-content h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4rem;
+      margin-bottom: 20px;
+    }
 
     .hero-content p {
       font-size: 16px;
@@ -100,18 +140,30 @@
       border-radius: 28px;
       font-size: 16px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      font-family: 'quicksand', sans-serif;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     .buka-btn:hover {
-      background-color: #640505;
+      background-color: var(--maroon);
+      color: white;
     }
 
-/* THE WEDDING */
+    /* RESPONSIF */
+    @media screen and (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 3rem;
+      }
+      .hero-content p {
+        font-size: 14px;
+      }
+    }
+	
+	/* THE WEDDING */
 #wedding {
   padding: 80px 20px;
-  background: url('cover3.png') no-repeat center center fixed;
-  background-size: cover;
+  /* background: url('cover3.png') no-repeat center center fixed; */
+  /* background-size: cover; */
 }
 
 .wedding-content {
@@ -231,13 +283,14 @@
   margin-top: 20px;
   text-align: center;
   animation: fadeIn 1.5s ease;
-}
-
-/* Animasi lembut muncul */
+  }
+  
+  /* Animasi lembut muncul */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
 
  /* AYAT */
 #ayat {
@@ -298,100 +351,20 @@
   }
 }
 
-
-
-#/* THE WEDDING */
-#the-wedding-header {
-  text-align: center; /* Memastikan teks berada di tengah */
-}
-
-@media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 30px;
-    text-align: center; /* Menambahkan text-align center untuk pastikan judul tetap di tengah */
-  }
-  
-  .wedding-content {
-    max-width: 90%;
-    padding: 20px;
-    margin: 0 auto; /* Menghindari elemen bergeser */
-  }
-  
-  .wedding-content h2,
-  .wedding-content h3 {
-    font-size: 26px;
-    text-align: center; /* Menambahkan text-align center untuk pastikan subtitle tetap di tengah */
-  }
-
-  .countdown {
-    display: flex;
-    justify-content: center;
-    flex-wrap: nowrap; /* Menambahkan ini untuk mencegah elemen turun ke baris berikutnya */
-    gap: 6px;
-  }
-
-  .countdown-item {
-    background: #fff;
-    border: 2px solid var(--maroon);
-    border-radius: 12px;
-    padding: 12px 12px;
-    min-width: 50px; /* Menjamin lebar elemen tetap konsisten */
-    color: var(--maroon);
-    font-weight: bold;
-    font-size: 18px;
-    text-align: center;
-    margin: 0 auto; /* Memastikan countdown item tetap berada di tengah */
-  }
-
-  .countdown-item span {
-    display: block;
-    font-size: 13px;
-    font-weight: normal;
-    margin-top: 5px;
-  }
-}
-
-@media (max-width: 480px) {
-  #ayat {
-    padding: 60px 10px; /* Lebih kecil lagi untuk layar ponsel */
-  }
-
-  .hero-content h1 {
-    font-size: 24px; /* Ukuran font lebih kecil pada layar ponsel */
-  }
-
-  .wedding-content {
-    max-width: 95%;
-    padding: 15px;
-  }
-
-  .wedding-content h2,
-  .wedding-content h3 {
-    font-size: 24px;
-  }
-
-  .countdown-item {
-    font-size: 16px;
-    padding: 10px 12px;
-  }
-
-  .countdown-item span {
-    font-size: 12px;
-  }
-}
-
-
-#RESEPSI
+/* RESEPSI */
 .resepsi-section {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 60px 20px;
   width: 100%;
+  min-height: 100vh;
+  background: transparent; /* Pakai background dari parent/halaman utama */
 }
 
+
 .resepsi-box {
-  background-color: #640505;
+  background-color: #640505; /* atau bisa juga warna lain seperti var(--soft-white) */
   padding: 40px;
   border-radius: 20px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
@@ -399,22 +372,22 @@
   width: 100%;
   margin: 0 auto;
   text-align: center;
-  color: white;
+  color: #640505;
 }
 
 .resepsi-box .section-title {
   font-family: 'Berkshire Swash', cursive;
   font-size: 36px;
-  color: white !important; /* ini penting biar ga ketimpa */
+  color: #640505 !important;
   margin-bottom: 30px;
 }
 
 .resepsi-info {
-  font-family: 'quicksand';
+  font-family: 'Quicksand', sans-serif;
   font-size: 18px;
-  color: white;
   margin-bottom: 30px;
   line-height: 1.8;
+  color: white;
 }
 
 .resepsi-info i {
@@ -424,11 +397,11 @@
 
 .resepsi-undangan {
   font-size: 1.1rem;
-  color: white;
   margin-top: 10px;
   margin-bottom: 20px;
   text-align: center;
   font-family: 'Playfair Display';
+  color: white;
 }
 
 .resepsi-button {
@@ -445,10 +418,11 @@
 }
 
 .resepsi-button:hover {
-  background-color: #f5f5f5;
-  color: #850707;
+  background-color: #850707;
+  color: white;
 }
 
+/* Responsive */
 @media (max-width: 768px) {
   .resepsi-box {
     padding: 25px;
@@ -468,30 +442,35 @@
   }
 }
 
-
 /* KISAH CINTA */
 .kisah-section {
   padding: 80px 20px;
-  background: url('cover3.png') no-repeat center center fixed;
-  background-size: cover;
-  min-height: 400px; /* Menambahkan minimum height untuk area yang konsisten */
+  background-color: transparent;
+  min-height: 400px;
+
+  /* FIX iPhone Stretching Bug */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .kisah-wrapper {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap; /* Agar elemen bisa beradaptasi pada layar kecil */
+  flex-wrap: wrap;
 }
 
 .kertas-kisah {
-  background-color: rgba(255, 255, 255, 0.3); /* transparan */
-  backdrop-filter: blur(8px); /* blur halus */
-  -webkit-backdrop-filter: blur(8px); /* untuk Safari */
+  background-color: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border-radius: 20px;
   padding: 2rem;
   color: #333;
   max-width: 800px;
-  width: 100%; /* Menjamin lebar 100% agar elemen tidak keluar dari layar */
+  width: 100%;
   margin: auto;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
@@ -532,18 +511,19 @@
 /* Responsive */
 @media (max-width: 768px) {
   .kisah-section {
-    padding: 60px 10px; /* Menyesuaikan padding pada layar kecil */
+    padding: 60px 10px;
+    background-attachment: scroll; /* Just to be safe */
+    background-size: cover;
   }
 
   .kertas-kisah {
     padding: 30px 20px;
-    background-size: contain;
-    margin: 20px 10px; /* Menambahkan margin agar elemen tidak terlalu menempel ke tepi */
+    margin: 20px 10px;
   }
 
   .judul-kisah {
     font-size: 26px;
-    margin-bottom: 20px; /* Mengurangi margin untuk lebih efisien di layar kecil */
+    margin-bottom: 20px;
   }
 
   .kertas-kisah p {
@@ -555,8 +535,13 @@
 .galeri-section {
   padding: 80px 20px;
   text-align: center;
-  background: url('cover3.png') no-repeat center center fixed;
   background-size: cover;
+  background-attachment: scroll; /* Ganti dari fixed (buggy di Safari iOS) */
+  -webkit-transform: translateZ(0); /* iOS Safari fix */
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .galeri-title {
@@ -568,7 +553,7 @@
 
 .slider-container {
   position: relative;
-  max-width: 90%;
+  max-width: 100%;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -579,14 +564,17 @@
 }
 
 .slide {
-  min-width: 50%; /* Menampilkan 2 foto */
+  min-width: 50%;
   padding: 10px;
+  box-sizing: border-box;
 }
 
 .slide img {
   width: 100%;
+  height: auto;
   border-radius: 15px;
   cursor: pointer;
+  object-fit: cover;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
 }
@@ -606,7 +594,7 @@
   width: 40px;
   height: 40px;
   cursor: pointer;
-  z-index: 1;
+  z-index: 2;
   font-size: 20px;
   transition: background 0.3s ease;
 }
@@ -634,12 +622,14 @@
   justify-content: center;
   z-index: 999;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .modal img {
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 90vw;
+  max-height: 80vh;
   border-radius: 10px;
+  object-fit: contain;
 }
 
 .close-button {
@@ -666,12 +656,9 @@
   background-color: rgba(255, 255, 255, 1);
 }
 
-
 /* Tombol panah dalam modal */
 .modal .nav-button {
-  position: absolute;
   top: 50%;
-  transform: translateY(-50%);
   background: var(--maroon);
   color: white;
   border: none;
@@ -679,8 +666,10 @@
   width: 40px;
   height: 40px;
   cursor: pointer;
-  z-index: 1;
+  z-index: 10;
   font-size: 22px;
+  position: absolute;
+  transform: translateY(-50%);
 }
 
 #prevModalBtn {
@@ -694,7 +683,7 @@
 /* === Responsif Mobile === */
 @media screen and (max-width: 768px) {
   .slide {
-    min-width: 100%; /* Satu foto per slide di HP */
+    min-width: 100%;
   }
 
   .nav-button,
@@ -704,15 +693,15 @@
     font-size: 18px;
   }
 
-  .close-btn {
-    top: 15px;
-    right: 15px;
-    font-size: 24px;
+  .modal img {
+    max-width: 95vw;
+    max-height: 75vh;
   }
 
-  .modal .nav-button {
-    top: 50%;
-    transform: translateY(-50%);
+  .close-button {
+    top: 15px;
+    right: 15px;
+    font-size: 20px;
   }
 
   #prevModalBtn {
@@ -747,7 +736,7 @@
   padding: 40px 25px;
   border-radius: 20px;
   max-width: 600px;
-  margin: 60px auto;
+  margin: 60px auto 100px auto;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
@@ -910,7 +899,7 @@
 
 .penutupan-section {
   background: rgba(0, 0, 0, 0.5); /* hitam transparan */
-  padding: 60px 20px;
+  padding: 60px 60px;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -936,11 +925,37 @@
   text-align: center;
 
 }
+/* Fix layout agar tidak kepotong di kiri-kanan di Safari iPhone */
+body, html {
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Untuk semua section yang butuh padding aman */
+section, .section-box, .hero-content, .kertas-kisah, .resepsi-box {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Khusus padding kiri-kanan aman di iPhone kecil */
+@media (max-width: 480px) {
+  section, .section-box, .hero-content, .kertas-kisah, .resepsi-box {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
 
   </style>
 </head>
+
 <body>
-  <!-- COVER -->
+
+<div class="bg-overlay"></div>
+ 
+   <!-- COVER -->
   <section class="hero" id="cover">
     <div class="hero-overlay"></div>
     <div class="hero-content">
@@ -1030,7 +1045,7 @@ document.querySelector(".buka-btn").addEventListener("click", scrollToWedding);
     document.getElementById("wedding").scrollIntoView({ behavior: 'smooth' });
   }
 
-  const targetDate = new Date("2025-04-21T11:00:00").getTime(); // ganti ke tanggal resepsimu
+  const targetDate = new Date("2025-08-23T00:00:01").getTime(); // ganti ke tanggal resepsimu
 
 const countdown = setInterval(() => {
   const now = new Date().getTime();
@@ -1078,8 +1093,8 @@ const countdown = setInterval(() => {
 
   
   <!--KEDUA MEMPELAI-->
- <section id="mempelai" style="background: url('cover3.png') no-repeat center center/cover; background-attachment: fixed; padding: 60px 20px;">
- <h2 style="font-family: 'Berkshire Swash', cursive; color: #640505; text-align: center; font-size: 32px; margin-bottom: 30px;">
+<section id="mempelai" style="padding: 60px 10px;">
+ <h2 style="font-family: 'Berkshire Swash', cursive; color: #640505; text-align: center; font-size: 32px; margin-bottom: 40px; margin-top: 90px;">
     Kedua Mempelai
   </h2>
 
