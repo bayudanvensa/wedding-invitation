@@ -1457,6 +1457,16 @@ const countdown = setInterval(() => {
 ">
   #withYUforeVEr
 
+
+	<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const bukaBtn = document.querySelector(".buka-btn");
+    bukaBtn.addEventListener("click", function () {
+      document.body.classList.remove("no-scroll");
+      document.getElementById("wedding").scrollIntoView({ behavior: "smooth" });
+    });
+  });
+</script>
   
 </body>
 </html>
