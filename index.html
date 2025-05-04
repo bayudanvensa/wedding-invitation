@@ -119,6 +119,7 @@
       color: white;
       padding: 20px;
       max-width: 700px;
+      padding-bottom: 100px;     
     }
 
     .hero-content h1 {
@@ -133,7 +134,7 @@
     }
 
     .buka-btn {
-      margin-top: 30px;
+      margin-top: 10px;
       background-color: white;
       padding: 12px 28px;
       border: none;
@@ -158,6 +159,11 @@
         font-size: 14px;
       }
     }
+
+ .no-scroll {
+  height: 100vh;
+  overflow: hidden;
+}
 	
 	/* THE WEDDING */
 #wedding {
@@ -962,7 +968,16 @@ section, .section-box, .hero-content, .kertas-kisah, .resepsi-box {
 	  <h1>Lahir Sebuah Selamanya</h1>
       <p>Setiap tahun, ada satu hari yang selalu istimewa. Tapi tahun ini, ia tak hanya menandai usia—melainkan menjadi titik awal dari sebuah selamanya.<br><br>Cinta memang tak pernah datang tanpa rencanaNya, sebab di hari yang telah lama kunanti sendirian, kini kami memilih untuk bersatu, dan menjadikannya milik kami berdua.</p>
       <button class="buka-btn" onclick="scrollToWedding()">Buka Undangan</button>
+  <body class="no-scroll">
     </div>
+
+	  <script>
+  function scrollToWedding() {
+    document.body.classList.remove('no-scroll');
+    document.getElementById('cover').scrollIntoView({ behavior: 'smooth' });
+  }
+</script>
+
   </section>
 
 <!-- Audio Section yang tersembunyi di halaman "The Wedding Of" -->
