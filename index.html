@@ -813,7 +813,7 @@
 @media (max-width: 768px) {
   .section-box {
     padding: 20px;
-    margin: 20px;
+    margin:  40px 20px 60px 20px;;
     box-shadow: none;
   }
 
@@ -852,7 +852,9 @@
   .section-title {
     font-size: 36px;
   }
-
+.section-box {
+    margin: 50px 15px 70px 15px; /* tambah napas lagi */
+  }
   .section-desc {
     font-size: 16px;
   }
@@ -936,6 +938,23 @@
   margin-top: 40px;
   margin-bottom: 40px;
   text-align: center;
+}
+@media (max-width: 768px) {
+  .penutupan-nama {
+    font-size: 28px; /* dari 35px -> 28px */
+    letter-spacing: 2px; /* dari 5px -> 2px */
+  }
+.penutupan-section {
+    padding: 40px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .penutupan-nama {
+    font-size: 24px;
+    letter-spacing: 1px;
+  }
+}
 
 }
 /* Fix layout agar tidak kepotong di kiri-kanan di Safari iPhone */
